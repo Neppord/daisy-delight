@@ -271,10 +271,3 @@ class TkGUI(Tkinter.Frame):
         self.stop_button.config(state='disabled')
         self.play_button.config(state='normal')
         self.state.pause()
-
-
-if __name__ == "__main__":
-    # p=DaisyPrompt(None)
-    # p.cmdloop()
-    g = TkGUI()
-    g.mainloop()
