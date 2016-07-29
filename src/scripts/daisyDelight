@@ -1,0 +1,31 @@
+#! python
+#coding: latin1
+from daisyDelight.interfaces import DDTextUserInterface,TkGUI
+from daisyDelight.state import DDState
+try:
+	from daisyDelight.player import Player
+except:
+	try:
+		from daisyDelight.madPlayer import MadPlayer as Player
+	except: 
+		print "You did not get everything installed. If your platform is Linux maby pymad is missing."
+		import sys
+		sys.exit(1)
+import sys
+
+state=DDState()
+player=Player(state)
+
+
+if "-g" in sys.argv:
+	gui=TkGUI(state)
+	gui.mainloop()
+else:
+	prompt=DDTextUserInterface(state)
+	msg="""Welcome:
+	\t this is a D.A.I.S.Y. reader for the mac type help or ? for some help.
+
+	/The Daisy Delight Team
+	"""
+	prompt.cmdloop(msg)
+
